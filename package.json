@@ -1,0 +1,12 @@
+{
+  "name": "ac-order-automation",
+  "version": "1.0.0",
+  "description": "Auto Country order automation for Tyres Tires",
+  "main": "order.js",
+  "scripts": {
+    "start": "node order.js"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}
