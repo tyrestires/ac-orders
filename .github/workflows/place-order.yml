@@ -5,6 +5,9 @@ on:
     - cron: '*/15 * * * *'   # every 15 minutes
   workflow_dispatch:           # manual trigger for testing
 
+permissions:
+  contents: write              # allow bot to commit state file
+
 jobs:
   place-order:
     runs-on: ubuntu-latest
@@ -26,12 +29,16 @@ jobs:
         env:
           AC_USERNAME: ${{ secrets.AC_USERNAME }}
           AC_PASSWORD: ${{ secrets.AC_PASSWORD }}
+          WAVE_TOKEN: ${{ secrets.WAVE_TOKEN }}
+          WAVE_BIZ_ID: ${{ secrets.WAVE_BIZ_ID }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
         run: node order.js
 
       - name: Commit updated state
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add ordered_invoices.json || true
+          git add ordered_invoices.json 2>/dev/null || true
           git diff --staged --quiet || git commit -m "chore: update ordered invoices state"
           git push || true
