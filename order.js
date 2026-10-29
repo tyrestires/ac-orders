@@ -7,12 +7,12 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
 
-const WAVE_TOKEN  = 'jcj3082D57A6qIc8qJSy856FoZOHV7';
-const WAVE_BIZ_ID = 'QnVzaW5lc3M6YjM5MGQ0ZWEtYjlmYi00NDkzLWI2MDEtNGIyMGY5MmRkYzZi';
-const AC_USERNAME = process.env.AC_USERNAME || 'TYRTIR';
-const AC_PASSWORD = process.env.AC_PASSWORD || 'tuvbyx2vYfve';
-const NOTIFY_EMAIL = 'tyrestires@proton.me';
-const RESEND_API_KEY = 're_LuVL7cu3_CnjAsSAZZFa6cSXiasLQkr5u';
+const WAVE_TOKEN  = process.env.WAVE_TOKEN;
+const WAVE_BIZ_ID = process.env.WAVE_BIZ_ID;
+const AC_USERNAME = process.env.AC_USERNAME;
+const AC_PASSWORD = process.env.AC_PASSWORD;
+const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL;
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const STATE_FILE = './ordered_invoices.json';
 
 async function wave(query, variables = {}) {
