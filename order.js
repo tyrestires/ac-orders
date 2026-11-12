@@ -122,7 +122,7 @@ async function placeACOrder(invoice) {
       // Set quantity
       const qtyInput = page.locator('input[name="quantity"], input[type="number"]').first();
       if (await qtyInput.count() > 0) {
-        await qtyInput.triple_click();
+        await qtyInput.click({ clickCount: 3 });
         await qtyInput.fill(String(qty));
       }
 
