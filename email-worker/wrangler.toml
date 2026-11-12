@@ -1,0 +1,17 @@
+name = "tyrestires-email-worker"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "PO_SENT"
+id = "bffffc80cf67475db122b608eb45627c"
+
+[vars]
+FORWARD_TO = "paul@pauljanzendesign.com"
+
+# RESEND_API_KEY must be set as a secret:
+#   wrangler secret put RESEND_API_KEY
+#
+# SUPPLIER_EMAIL is currently set as a secret (test mode: paul@pauljanzendesign.com)
+# To go live, update it:
+#   wrangler secret put SUPPLIER_EMAIL
