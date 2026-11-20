@@ -1,9 +1,7 @@
 name: Place AC Orders
 
 on:
-  schedule:
-    - cron: '*/15 * * * *'   # every 15 minutes
-  workflow_dispatch:           # manual trigger for testing
+  workflow_dispatch:           # manual trigger only — schedule disabled
 
 permissions:
   contents: write              # allow bot to commit state file
